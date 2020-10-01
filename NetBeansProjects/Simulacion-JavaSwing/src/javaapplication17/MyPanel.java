@@ -25,16 +25,16 @@ public class MyPanel extends JPanel {
         jcomp3 = new JLabel("Cantidades");
 
         principal = new MiBoton("Verificar Datos"); //<-------- Cambiamos
-        cebolla = new MiMonito("c", "/imagenes/cebolla.png");
-        tomate = new MiMonito("t", "/imagenes/tomate.png");
-        lechuga = new MiMonito("L", "/imagenes/ensalada.png");
-        mayonesa = new MiMonito("m", "/imagenes/mayonesa.png");
-        condimentos = new MiMonito("cond", "/imagenes/salsa-de-tomate.png");
-        salchicha = new MiMonito("s", "/imagenes/sausage-icon-0.jpg");
-        pan = new MiMonito("pan", "/imagenes/66633797-hot-dog-bread-icon-image-vector-illustration-design.jpg");
-        tocino = new MiMonito("tocino", "/imagenes/tocino.png");
+        cebolla = new MiMonito("c", "\\cebolla.png");
+        tomate = new MiMonito("t", "\\tomate.png");
+        lechuga = new MiMonito("L", "\\ensalada.png");
+        mayonesa = new MiMonito("m", "\\mayonesa.png");
+        condimentos = new MiMonito("cond", "\\salsa-de-tomate.png");
+        salchicha = new MiMonito("s", "\\sausage-icon-0.jpg");
+        pan = new MiMonito("pan", "\\66633797-hot-dog-bread-icon-image-vector-illustration-design.jpg");
+        tocino = new MiMonito("tocino", "\\tocino.png");
 
-        ImageIcon image = new ImageIcon("/imagenes/comida.png");
+        ImageIcon image = new ImageIcon("\\comida.png");
         jcomp53 = new JLabel(image);
 
         persona = new MiMonito("animacion", "\\icon.png");
