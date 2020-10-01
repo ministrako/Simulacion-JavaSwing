@@ -24,7 +24,7 @@ public class MyPanel extends JPanel {
         nuevosInput = new JButton(" Nueva Simulacion");
         jcomp3 = new JLabel("Cantidades");
 
-        principal = new MiBoton("Verificar"); //<-------- Cambiamos
+        principal = new MiBoton("Verificar Datos"); //<-------- Cambiamos
         cebolla = new MiMonito("c", "/imagenes/cebolla.png");
         tomate = new MiMonito("t", "/imagenes/tomate.png");
         lechuga = new MiMonito("L", "/imagenes/ensalada.png");
