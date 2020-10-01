@@ -21,7 +21,7 @@ public class MyPanel extends JPanel {
 
     public MyPanel() {
         //construct components
-        nuevosInput = new JButton(" Nueva Simulacion");
+        nuevosInput = new JButton("Nueva Simulacion");
         jcomp3 = new JLabel("Cantidades");
 
         principal = new MiBoton("Verificar Datos"); //<-------- Cambiamos
@@ -47,7 +47,7 @@ public class MyPanel extends JPanel {
         inputTocino = new JTextField(5);
         inputPan = new JTextField(5);
         inputSalchicha = new JTextField(5);
-        jcomp21 = new JLabel("Tiempo con el que se cuentapara trabajar (minutos)");
+        jcomp21 = new JLabel("Tiempo con el que se cuentapara trabajar (segundos)");
         jcomp22 = new JLabel("Cantidad Esperada");
         inputTiempo = new JTextField(5);
         inputCantidad = new JTextField(5);
