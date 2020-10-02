@@ -215,15 +215,19 @@ public class MyPanel extends JPanel {
         JTextField[] configuraciones = {tomatePicar, cebollaPicar, lechugaPicar, tomateAplicar, cebollaAplicar, lechugaAplicar,
             mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar, panAplicar, salchichaPreparar, salchichaAplicar};
         JTextField[] inputs = {inputCebolla, inputTomate, inputLechuga, inputMayonesa, inputCondimentos,
-            inputTocino, inputPan, inputSalchicha};
+            inputTocino, inputPan, inputSalchicha, inputTiempo, inputCantidad};
 
         setStage(labelsCantidades, configuraciones, inputs); //<-------- Agrega funciones principales
+        agregarVerificadores(configuraciones);
 
+        //CODIGO FUNCIONES DE LOS INPUT 
         nuevosInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 desbloquearInputs(inputs);
-            }});
+                agregarVerificadores(inputs);
+            }
+        });
 
         //CODIGO DEL THREAD SIMULACION
         principal.innit();
@@ -238,6 +242,7 @@ public class MyPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 desbloquearConfiguraciones(configuraciones);
+                //agregarVerificadores(configuraciones);
             }
         });
 
@@ -267,8 +272,6 @@ public class MyPanel extends JPanel {
     }
 
     private void setStage(MiMonito[] labelsCantidades, JTextField[] configuraciones, JTextField[] inputs) {
-        inputTiempo.setEnabled(false);
-        inputCantidad.setEnabled(false);
         guardad.setEnabled(false);
         cancelar.setEnabled(false);
         principal.setEnabled(false);
@@ -283,13 +286,11 @@ public class MyPanel extends JPanel {
             inputs[i].setEnabled(false);
         }
     }
-    
+
     private void desbloquearInputs(JTextField[] inputs) {
         for (int i = 0; i < inputs.length; i++) {
-            inputs[i].setEnabled(true);     
+            inputs[i].setEnabled(true);
         }
-        inputTiempo.setEnabled(true);
-        inputCantidad.setEnabled(true);
         principal.setEnabled(true);
     }
 
@@ -308,11 +309,11 @@ public class MyPanel extends JPanel {
         panAplicar.setText("0");
         salchichaPreparar.setText("105");
         salchichaAplicar.setText("4.75");
-        
+
         for (int i = 0; i < configuraciones.length; i++) {
             configuraciones[i].setEnabled(false);
         }
-        
+
         guardad.setEnabled(false);
         cancelar.setEnabled(false);
         editar.setEnabled(true);
@@ -343,12 +344,32 @@ public class MyPanel extends JPanel {
         salchichaPreparar.getText();
         salchichaAplicar.getText();*/
         for (int i = 0; i < configuraciones.length; i++) {
-            configuraciones[i].setEnabled(false);
+            Color background = configuraciones[i].getBackground();
+            if (background.equals(Color.red)) {
+                JTextField[] temp = {configuraciones[i]};
+                agregarVerificadores(temp);
+                System.out.println("ROJO");
+                guardad.setEnabled(true);
+                cancelar.setEnabled(true);
+                editar.setEnabled(false);
+                break;
+            } else {
+                System.out.println("VERDE");
+                configuraciones[i].setEnabled(false);
+                guardad.setEnabled(false);
+                cancelar.setEnabled(false);
+                editar.setEnabled(true);
+            }
+        }
+    }
+
+    private void agregarVerificadores(JTextField[] inputs) {
+        if (inputs.length > 0) {
+            for (int i = 0; i < inputs.length; i++) {
+                inputs[i].setInputVerifier(new Verificador());
+            }
         }
 
-        guardad.setEnabled(false);
-        cancelar.setEnabled(false);
-        editar.setEnabled(true);
     }
 
 }

@@ -22,18 +22,20 @@ public class MiBoton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        
         if (e.getActionCommand() == "Detener") {
             
         }
         if (e.getActionCommand() == "Verificar") {
             this.name = "Iniciar";
 
-        }else{
+        } else {
             System.out.println("Hey soy el Ancton Event del thread");
             Thread t = new Thread(monito, name);
             t.start();
         }
 
     }
-
+    
 }
