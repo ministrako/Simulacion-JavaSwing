@@ -242,7 +242,6 @@ public class MyPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 desbloquearConfiguraciones(configuraciones);
-                //agregarVerificadores(configuraciones);
             }
         });
 
@@ -330,37 +329,13 @@ public class MyPanel extends JPanel {
     }
 
     private void setConfiguracionNueva(JTextField[] configuraciones) {
-        /* tomatePicar.getText();
-        cebollaPicar.getText();
-        lechugaPicar.getText();
-        tomateAplicar.getText();
-        cebollaAplicar.getText();
-        lechugaAplicar.getText();
-        mayonesaAplicar.getText();
-        aderezoAplicar.getText();
-        tocinoAplicar.getText();
-        panPreparar.getText();
-        panAplicar.getText();
-        salchichaPreparar.getText();
-        salchichaAplicar.getText();*/
         for (int i = 0; i < configuraciones.length; i++) {
-            Color background = configuraciones[i].getBackground();
-            if (background.equals(Color.red)) {
-                JTextField[] temp = {configuraciones[i]};
-                agregarVerificadores(temp);
-                System.out.println("ROJO");
-                guardad.setEnabled(true);
-                cancelar.setEnabled(true);
-                editar.setEnabled(false);
-                break;
-            } else {
-                System.out.println("VERDE");
-                configuraciones[i].setEnabled(false);
-                guardad.setEnabled(false);
-                cancelar.setEnabled(false);
-                editar.setEnabled(true);
-            }
+            configuraciones[i].setEnabled(false);
+
         }
+        guardad.setEnabled(false);
+        cancelar.setEnabled(false);
+        editar.setEnabled(true);
     }
 
     private void agregarVerificadores(JTextField[] inputs) {
@@ -369,7 +344,6 @@ public class MyPanel extends JPanel {
                 inputs[i].setInputVerifier(new Verificador());
             }
         }
-
     }
 
 }

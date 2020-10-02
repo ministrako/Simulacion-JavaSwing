@@ -6,19 +6,30 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
-public class Verificador extends InputVerifier{
+public class Verificador extends InputVerifier {
 
     @Override
     public boolean verify(JComponent arg0) {
         String text = ((JTextField) arg0).getText();
-            if (text.matches("[0-9]*") && Integer.parseInt(text) > 0) {
-                System.out.println("match");
+        boolean isInt = false, isDouble = false;
+
+        try {
+            Double.parseDouble(text);
+            isDouble = true;
+            arg0.setBackground(Color.green);
+        } catch (NumberFormatException a) {
+            try {
+                Integer.parseInt(text);
+                isInt = true;
                 arg0.setBackground(Color.green);
-            } else {
+            } catch (NumberFormatException e) {
+                System.out.println(text + " is neither an int or a double");
                 arg0.setBackground(Color.red);
-                System.out.println("not match");
                 return false;
             }
+        }
+
         return true;
+
     }
 }
