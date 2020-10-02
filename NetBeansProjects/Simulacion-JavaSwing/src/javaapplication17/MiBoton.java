@@ -24,10 +24,10 @@ public class MiBoton extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
 
-        if (e.getActionCommand() == "Detener") {
+        if (e.getSource().toString()== "Detener") {
 
         }
-        if (e.getActionCommand() == "Verificar") {
+        if (e.getSource().toString() == "Verificar") {
             this.name = "Iniciar";
 
         } else {
