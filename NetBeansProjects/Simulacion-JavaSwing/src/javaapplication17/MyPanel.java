@@ -6,52 +6,51 @@ import javax.swing.*;
 
 public class MyPanel extends JPanel {
 
-    private JButton nuevosInput;
     private MiBoton principal; //<-------- Cambiamos
-    private MiMonito cebolla, tomate, lechuga, mayonesa, condimentos, salchicha, pan, tocino;
-    private MiMonito persona; //<-------- Cambiamos
+    private MiMonito cebolla, tomate, lechuga, mayonesa, condimentos, salchicha, pan, persona, tocino, calentar, guisar;
     private JTextField inputCebolla, inputTomate, inputLechuga, inputMayonesa, inputCondimentos,
             inputTocino, inputPan, inputSalchicha, inputTiempo, inputCantidad;
-    private JLabel jcomp3, jcomp21, jcomp22, jcomp25, jcomp26, jcomp27, jcomp28, jcomp29,
-            jcomp36, jcomp37, jcomp40, jcomp41, jcomp42, jcomp43, jcomp53;
     private JTextField tomatePicar, cebollaPicar, lechugaPicar, tomateAplicar, cebollaAplicar,
             lechugaAplicar, mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar,
             panAplicar, salchichaPreparar, salchichaAplicar;
-    private JButton editar, guardad, cancelar, salir;
+    private JLabel jcomp3, jcomp21, jcomp22, jcomp25, jcomp26, jcomp27, jcomp28, jcomp29,
+            jcomp36, jcomp37, jcomp40, jcomp41, jcomp42, jcomp43, jcomp53;
+    private JButton editar, guardar, cancelar, salir, nuevosInput;
 
     public MyPanel() {
         //construct components
         nuevosInput = new JButton("Nueva Simulacion");
-        jcomp3 = new JLabel("Cantidades");
 
-        principal = new MiBoton("Verificar Datos"); //<-------- Cambiamos
-        cebolla = new MiMonito("c", "\\cebolla.png");
-        tomate = new MiMonito("t", "\\tomate.png");
-        lechuga = new MiMonito("L", "\\ensalada.png");
-        mayonesa = new MiMonito("m", "\\mayonesa.png");
-        condimentos = new MiMonito("cond", "\\salsa-de-tomate.png");
-        salchicha = new MiMonito("s", "\\sausage-icon-0.jpg");
-        pan = new MiMonito("pan", "\\66633797-hot-dog-bread-icon-image-vector-illustration-design.jpg");
-        tocino = new MiMonito("tocino", "\\tocino.png");
+        principal = new MiBoton("Verificar"); //<-------- Cambiamos
+        cebolla = new MiMonito("c", "imagenes/cebolla.png");
+        tomate = new MiMonito("t", "imagenes/tomate.png");
+        lechuga = new MiMonito("L", "imagenes/lechuga.png");
+        mayonesa = new MiMonito("m", "imagenes/mayonesa.png");
+        condimentos = new MiMonito("cond", "imagenes/ketchup.png");
+        salchicha = new MiMonito("s", "imagenes/salchicha.png");
+        pan = new MiMonito("pan", "imagenes/pan.jpg");
+        tocino = new MiMonito("tocino", "imagenes/tocino.png");
+        persona = new MiMonito("animacion", "imagenes/user.png");
+        calentar = new MiMonito("calentar", "imagenes/calentarpan.png");
+        guisar = new MiMonito("guisar", "imagenes/guisarsalchicha.png");
 
-        ImageIcon image = new ImageIcon("\\comida.png");
+        ImageIcon image = new ImageIcon("imagenes/dogo.png");
         jcomp53 = new JLabel(image);
 
-        persona = new MiMonito("animacion", "\\icon.png");
-
-        inputCebolla = new JTextField(5);
-        inputTomate = new JTextField(5);
-        inputLechuga = new JTextField(5);
-        inputMayonesa = new JTextField(5);
-        inputCondimentos = new JTextField(5);
-        inputTocino = new JTextField(5);
-        inputPan = new JTextField(5);
-        inputSalchicha = new JTextField(5);
-        jcomp21 = new JLabel("Tiempo con el que se cuentapara trabajar (segundos)");
-        jcomp22 = new JLabel("Cantidad Esperada");
+        inputCebolla = new JTextField("1");
+        inputTomate = new JTextField("1");
+        inputLechuga = new JTextField("1");
+        inputMayonesa = new JTextField("1");
+        inputCondimentos = new JTextField("1");
+        inputTocino = new JTextField("1");
+        inputSalchicha = new JTextField("2");
+        inputPan = new JTextField("1");
+        jcomp3 = new JLabel("Cantidades");
+        jcomp21 = new JLabel("Tiempo para trabajar (minutos)");
+        jcomp22 = new JLabel("Cantidad Hot-Dogs");
         inputTiempo = new JTextField(5);
         inputCantidad = new JTextField(5);
-        jcomp25 = new JLabel("Configuracion en segundos");
+        jcomp25 = new JLabel("TIEMPO EN SEGUNDOS");
         jcomp26 = new JLabel("Picar / Aplicar");
         jcomp27 = new JLabel("Tomate");
         jcomp28 = new JLabel("Cebolla");
@@ -77,7 +76,7 @@ public class MyPanel extends JPanel {
         salchichaAplicar = new JTextField(5);
         editar = new JButton("Editar");
 
-        guardad = new JButton("Guardar");
+        guardar = new JButton("Guardar");
         cancelar = new JButton("Cancelar");
         salir = new JButton("Salir");
 
@@ -99,6 +98,63 @@ public class MyPanel extends JPanel {
         //adjust size and set layout
         setPreferredSize(new Dimension(662, 527));
         setLayout(null);
+
+        //set component bounds (only needed by Absolute Positioning)
+        persona.setBounds(90, 40, 80, 40);
+        calentar.setBounds(90, 90, 80, 40);
+        guisar.setBounds(255, 90, 90, 40);
+        nuevosInput.setBounds(15, 10, 155, 20);
+        principal.setBounds(455, 275, 100, 20);
+        jcomp3.setBounds(5, 135, 75, 25);
+        cebolla.setBounds(420, 90, 65, 40);
+        tomate.setBounds(480, 90, 65, 40);
+        lechuga.setBounds(535, 90, 65, 40);
+        mayonesa.setBounds(200, 90, 65, 40);
+        condimentos.setBounds(590, 90, 70, 40);
+        salchicha.setBounds(370, 80, 80, 50);
+        pan.setBounds(145, 100, 40, 25);
+        tocino.setBounds(305, 90, 70, 40);
+        inputCebolla.setBounds(420, 135, 50, 25);
+        inputTomate.setBounds(480, 135, 45, 25);
+        inputLechuga.setBounds(535, 135, 45, 25);
+        inputMayonesa.setBounds(200, 135, 50, 25);
+        inputCondimentos.setBounds(590, 135, 45, 25);
+        inputTocino.setBounds(305, 135, 50, 25);
+        inputPan.setBounds(140, 135, 55, 25);
+        inputSalchicha.setBounds(365, 135, 50, 25);
+        jcomp21.setBounds(230, 180, 305, 30);
+        jcomp22.setBounds(305, 230, 135, 25);
+        inputTiempo.setBounds(455, 180, 100, 25);
+        inputCantidad.setBounds(455, 225, 100, 25);
+        jcomp25.setBounds(245, 310, 190, 25);
+        jcomp26.setBounds(105, 335, 100, 25);
+        jcomp27.setBounds(15, 365, 55, 25);
+        jcomp28.setBounds(15, 405, 60, 25);
+        jcomp29.setBounds(10, 440, 60, 25);
+        tomatePicar.setBounds(85, 370, 50, 25);
+        cebollaPicar.setBounds(85, 405, 50, 25);
+        lechugaPicar.setBounds(85, 440, 50, 25);
+        tomateAplicar.setBounds(145, 370, 50, 25);
+        cebollaAplicar.setBounds(145, 405, 50, 25);
+        lechugaAplicar.setBounds(145, 440, 50, 25);
+        jcomp36.setBounds(225, 370, 105, 25);
+        jcomp37.setBounds(230, 440, 100, 25);
+        mayonesaAplicar.setBounds(335, 370, 55, 25);
+        aderezoAplicar.setBounds(335, 440, 55, 25);
+        jcomp40.setBounds(405, 370, 110, 20);
+        jcomp41.setBounds(435, 400, 80, 25);
+        jcomp42.setBounds(410, 440, 110, 25);
+        jcomp43.setBounds(520, 335, 115, 30);
+        tocinoAplicar.setBounds(590, 365, 55, 25);
+        panPreparar.setBounds(520, 400, 55, 25);
+        panAplicar.setBounds(590, 400, 55, 25);
+        salchichaPreparar.setBounds(520, 435, 55, 25);
+        salchichaAplicar.setBounds(590, 435, 55, 25);
+        editar.setBounds(35, 485, 100, 25);
+        guardar.setBounds(165, 485, 100, 25);
+        cancelar.setBounds(290, 485, 100, 25);
+        salir.setBounds(540, 485, 100, 25);
+        jcomp53.setBounds(20, 150, 200, 200);
 
         //add components
         add(nuevosInput);
@@ -150,68 +206,15 @@ public class MyPanel extends JPanel {
         add(salchichaPreparar);
         add(salchichaAplicar);
         add(editar);
-        add(guardad);
+        add(guardar);
         add(cancelar);
         add(salir);
         add(jcomp53);
-
-        //set component bounds (only needed by Absolute Positioning)
-        nuevosInput.setBounds(15, 10, 155, 20);
-        principal.setBounds(455, 255, 100, 20);
-        jcomp3.setBounds(-5, 115, 75, 25);
-        cebolla.setBounds(120, 75, 65, 25);
-        tomate.setBounds(170, 75, 35, 25);
-        lechuga.setBounds(205, 75, 45, 25);
-        mayonesa.setBounds(255, 75, 45, 25);
-        condimentos.setBounds(315, 75, 50, 25);
-        salchicha.setBounds(490, 75, 40, 25);
-        pan.setBounds(445, 75, 40, 25);
-        tocino.setBounds(370, 75, 65, 25);
-        persona.setBounds(5, 40, 70, 25);
-        inputCebolla.setBounds(90, 115, 50, 25);
-        inputTomate.setBounds(150, 115, 45, 25);
-        inputLechuga.setBounds(205, 115, 45, 25);
-        inputMayonesa.setBounds(255, 115, 50, 25);
-        inputCondimentos.setBounds(315, 115, 45, 25);
-        inputTocino.setBounds(370, 115, 50, 25);
-        inputPan.setBounds(425, 115, 55, 25);
-        inputSalchicha.setBounds(490, 115, 50, 25);
-        jcomp21.setBounds(140, 160, 305, 30);
-        jcomp22.setBounds(300, 210, 135, 25);
-        inputTiempo.setBounds(455, 160, 100, 25);
-        inputCantidad.setBounds(455, 205, 100, 25);
-        jcomp25.setBounds(245, 310, 190, 25);
-        jcomp26.setBounds(105, 335, 100, 25);
-        jcomp27.setBounds(15, 365, 55, 25);
-        jcomp28.setBounds(15, 405, 60, 25);
-        jcomp29.setBounds(10, 440, 60, 25);
-        tomatePicar.setBounds(85, 370, 50, 25);
-        cebollaPicar.setBounds(85, 405, 50, 25);
-        lechugaPicar.setBounds(85, 440, 50, 25);
-        tomateAplicar.setBounds(145, 370, 50, 25);
-        cebollaAplicar.setBounds(145, 405, 50, 25);
-        lechugaAplicar.setBounds(145, 440, 50, 25);
-        jcomp36.setBounds(225, 370, 105, 25);
-        jcomp37.setBounds(225, 440, 100, 25);
-        mayonesaAplicar.setBounds(335, 370, 55, 25);
-        aderezoAplicar.setBounds(335, 440, 55, 25);
-        jcomp40.setBounds(405, 370, 110, 20);
-        jcomp41.setBounds(430, 400, 80, 25);
-        jcomp42.setBounds(410, 440, 110, 25);
-        jcomp43.setBounds(520, 335, 115, 30);
-        tocinoAplicar.setBounds(590, 365, 55, 25);
-        panPreparar.setBounds(520, 400, 55, 25);
-        panAplicar.setBounds(590, 400, 55, 25);
-        salchichaPreparar.setBounds(520, 435, 55, 25);
-        salchichaAplicar.setBounds(590, 435, 55, 25);
-        editar.setBounds(35, 485, 100, 25);
-        guardad.setBounds(165, 485, 100, 25);
-        cancelar.setBounds(290, 485, 100, 25);
-        salir.setBounds(540, 485, 100, 25);
-        jcomp53.setBounds(30, 235, 100, 25);
+        add(calentar);
+        add(guisar);
 
         //CODIGO DATOS DE INICIO
-        MiMonito[] labelsCantidades = {cebolla, tomate, lechuga, mayonesa, condimentos, salchicha, pan, tocino};
+        MiMonito[] labelsCantidades = {cebolla, tomate, lechuga, mayonesa, condimentos, salchicha, pan, tocino,  calentar, guisar};
         JTextField[] configuraciones = {tomatePicar, cebollaPicar, lechugaPicar, tomateAplicar, cebollaAplicar, lechugaAplicar,
             mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar, panAplicar, salchichaPreparar, salchichaAplicar};
         JTextField[] inputs = {inputCebolla, inputTomate, inputLechuga, inputMayonesa, inputCondimentos,
@@ -220,7 +223,7 @@ public class MyPanel extends JPanel {
         setStage(labelsCantidades, configuraciones, inputs); //<-------- Agrega funciones principales
         agregarVerificadores(configuraciones);
 
-        //CODIGO FUNCIONES DE LOS INPUT 
+        //CODIGO FUNCIONES DE LOS INPUT
         nuevosInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
@@ -237,7 +240,7 @@ public class MyPanel extends JPanel {
 
         principal.addActionListener(principal);
 
-        //CODIGO FUNCIONES DE LA CONFIGURACION 
+        //CODIGO FUNCIONES DE LA CONFIGURACION
         editar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
@@ -252,7 +255,7 @@ public class MyPanel extends JPanel {
             }
         });
 
-        guardad.addActionListener(new ActionListener() {
+        guardar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 setConfiguracionNueva(configuraciones);
@@ -262,16 +265,19 @@ public class MyPanel extends JPanel {
     }
 
     public static void main(String[] args) {
+        JFrame frame = new JFrame("EVENhoT-dog");
 
-        JFrame frame = new JFrame("MyPanel");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(new MyPanel());
         frame.pack();
+        frame.setResizable(false);
+        frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 
     private void setStage(MiMonito[] labelsCantidades, JTextField[] configuraciones, JTextField[] inputs) {
-        guardad.setEnabled(false);
+        guardar.setEnabled(false);
         cancelar.setEnabled(false);
         principal.setEnabled(false);
 
@@ -312,8 +318,7 @@ public class MyPanel extends JPanel {
         for (int i = 0; i < configuraciones.length; i++) {
             configuraciones[i].setEnabled(false);
         }
-
-        guardad.setEnabled(false);
+        guardar.setEnabled(false);
         cancelar.setEnabled(false);
         editar.setEnabled(true);
     }
@@ -322,18 +327,16 @@ public class MyPanel extends JPanel {
         for (int i = 0; i < configuraciones.length; i++) {
             configuraciones[i].setEnabled(true);
         }
-        guardad.setEnabled(true);
+        guardar.setEnabled(true);
         cancelar.setEnabled(true);
         editar.setEnabled(false);
-
     }
 
     private void setConfiguracionNueva(JTextField[] configuraciones) {
         for (int i = 0; i < configuraciones.length; i++) {
             configuraciones[i].setEnabled(false);
-
         }
-        guardad.setEnabled(false);
+        guardar.setEnabled(false);
         cancelar.setEnabled(false);
         editar.setEnabled(true);
     }

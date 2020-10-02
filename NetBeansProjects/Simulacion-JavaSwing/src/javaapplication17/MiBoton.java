@@ -22,10 +22,10 @@ public class MiBoton extends JButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        
+
+
         if (e.getActionCommand() == "Detener") {
-            
+
         }
         if (e.getActionCommand() == "Verificar") {
             this.name = "Iniciar";
@@ -37,5 +37,5 @@ public class MiBoton extends JButton implements ActionListener {
         }
 
     }
-    
+
 }
