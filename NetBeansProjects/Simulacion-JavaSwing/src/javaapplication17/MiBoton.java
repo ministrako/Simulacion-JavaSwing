@@ -27,7 +27,7 @@ public class MiBoton extends JButton implements ActionListener {
         if (e.getSource().toString()== "Detener") {
 
         }
-        if (e.getSource().toString() == "Verificar") {
+        if (e.getSource().toString() == "Comenzar") {
             this.name = "Iniciar";
 
         } else {

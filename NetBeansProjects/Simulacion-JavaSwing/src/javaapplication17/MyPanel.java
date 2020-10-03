@@ -14,14 +14,15 @@ public class MyPanel extends JPanel {
             lechugaAplicar, mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar,
             panAplicar, salchichaPreparar, salchichaAplicar;
     private JLabel jcomp3, jcomp21, jcomp22, jcomp25, jcomp26, jcomp27, jcomp28, jcomp29,
-            jcomp36, jcomp37, jcomp40, jcomp41, jcomp42, jcomp43, jcomp53;
-    private JButton editar, guardar, cancelar, salir, nuevosInput;
+            jcomp36, jcomp37, jcomp40, jcomp41, jcomp42, jcomp43, jcomp53, cdaM, cdaC, pzaP, pzaT, pzaS, cantC, cantT, cantL;
+    private JButton editar, guardar, cancelar, salir, nuevosInput, resultados;
 
     public MyPanel() {
         //construct components
+        resultados = new JButton("Resultados");
         nuevosInput = new JButton("Nueva Simulacion");
 
-        principal = new MiBoton("Verificar"); //<-------- Cambiamos
+        principal = new MiBoton("Comenzar"); //<-------- Cambiamos
         cebolla = new MiMonito("c", "imagenes/cebolla.png");
         tomate = new MiMonito("t", "imagenes/tomate.png");
         lechuga = new MiMonito("L", "imagenes/lechuga.png");
@@ -37,6 +38,14 @@ public class MyPanel extends JPanel {
         ImageIcon image = new ImageIcon("imagenes/dogo.png");
         jcomp53 = new JLabel(image);
 
+        cantL = new JLabel("/12");
+        cantT = new JLabel("/4");
+        cantC = new JLabel("/4");
+        pzaS = new JLabel("pza.");
+        pzaT = new JLabel("pza.");
+        pzaP = new JLabel("pza.");
+        cdaM = new JLabel("cda.");            // suponiendo que se necesita 1 cda de mayonesa para cada hot-dog
+        cdaC = new JLabel("cda.");            // suponiendo que se necesita 1 cda de condimentos para cada hot-dog
         inputCebolla = new JTextField("1");
         inputTomate = new JTextField("1");
         inputLechuga = new JTextField("1");
@@ -74,8 +83,8 @@ public class MyPanel extends JPanel {
         panAplicar = new JTextField(5);
         salchichaPreparar = new JTextField(5);
         salchichaAplicar = new JTextField(5);
-        editar = new JButton("Editar");
 
+        editar = new JButton("Editar");
         guardar = new JButton("Guardar");
         cancelar = new JButton("Cancelar");
         salir = new JButton("Salir");
@@ -100,33 +109,42 @@ public class MyPanel extends JPanel {
         setLayout(null);
 
         //set component bounds (only needed by Absolute Positioning)
-        persona.setBounds(90, 40, 80, 40);
-        calentar.setBounds(90, 90, 80, 40);
+        cantL.setBounds(570, 136, 40, 25);
+        cantT.setBounds(520, 136, 40, 25);
+        cantC.setBounds(460, 136, 40, 25);
+        pzaS.setBounds(400, 136, 40, 25);
+        pzaT.setBounds(340, 136, 40, 25);
+        pzaP.setBounds(175, 136, 40, 25);
+        cdaC.setBounds(630, 136, 40, 25);
+        cdaM.setBounds(235, 136, 40, 25);
+        resultados.setBounds(555, 275, 100, 20);
+        persona.setBounds(85, 40, 80, 40);
+        calentar.setBounds(85, 90, 80, 40);
         guisar.setBounds(255, 90, 90, 40);
         nuevosInput.setBounds(15, 10, 155, 20);
-        principal.setBounds(455, 275, 100, 20);
+        principal.setBounds(440, 275, 100, 20);
         jcomp3.setBounds(5, 135, 75, 25);
         cebolla.setBounds(420, 90, 65, 40);
         tomate.setBounds(480, 90, 65, 40);
         lechuga.setBounds(535, 90, 65, 40);
-        mayonesa.setBounds(200, 90, 65, 40);
+        mayonesa.setBounds(195, 90, 65, 40);
         condimentos.setBounds(590, 90, 70, 40);
         salchicha.setBounds(370, 80, 80, 50);
-        pan.setBounds(145, 100, 40, 25);
+        pan.setBounds(140, 100, 40, 25);
         tocino.setBounds(305, 90, 70, 40);
-        inputCebolla.setBounds(420, 135, 50, 25);
-        inputTomate.setBounds(480, 135, 45, 25);
-        inputLechuga.setBounds(535, 135, 45, 25);
-        inputMayonesa.setBounds(200, 135, 50, 25);
-        inputCondimentos.setBounds(590, 135, 45, 25);
-        inputTocino.setBounds(305, 135, 50, 25);
-        inputPan.setBounds(140, 135, 55, 25);
-        inputSalchicha.setBounds(365, 135, 50, 25);
+        inputCebolla.setBounds(425, 135, 30, 25);
+        inputTomate.setBounds(485, 135, 30, 25);
+        inputLechuga.setBounds(545, 135, 30, 25);
+        inputMayonesa.setBounds(200, 135, 30, 25);
+        inputCondimentos.setBounds(595, 135, 30, 25);
+        inputTocino.setBounds(305, 135, 30, 25);
+        inputPan.setBounds(140, 135, 30, 25);
+        inputSalchicha.setBounds(365, 135, 30, 25);
         jcomp21.setBounds(230, 180, 305, 30);
         jcomp22.setBounds(305, 230, 135, 25);
-        inputTiempo.setBounds(455, 180, 100, 25);
-        inputCantidad.setBounds(455, 225, 100, 25);
-        jcomp25.setBounds(245, 310, 190, 25);
+        inputTiempo.setBounds(440, 180, 100, 25);
+        inputCantidad.setBounds(440, 225, 100, 25);
+        jcomp25.setBounds(250, 310, 190, 25);
         jcomp26.setBounds(105, 335, 100, 25);
         jcomp27.setBounds(15, 365, 55, 25);
         jcomp28.setBounds(15, 405, 60, 25);
@@ -157,6 +175,15 @@ public class MyPanel extends JPanel {
         jcomp53.setBounds(20, 150, 200, 200);
 
         //add components
+        add(cantL);
+        add(cantT);
+        add(cantC);
+        add(pzaS);
+        add(pzaT);
+        add(pzaP);
+        add(cdaC);
+        add(cdaM);
+        add(resultados);
         add(nuevosInput);
         add(principal);
         add(jcomp3);
@@ -216,19 +243,19 @@ public class MyPanel extends JPanel {
         //CODIGO DATOS DE INICIO
         MiMonito[] labelsCantidades = {cebolla, tomate, lechuga, mayonesa, condimentos, salchicha, pan, tocino,  calentar, guisar};
         JTextField[] configuraciones = {tomatePicar, cebollaPicar, lechugaPicar, tomateAplicar, cebollaAplicar, lechugaAplicar,
-            mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar, panAplicar, salchichaPreparar, salchichaAplicar};
+            mayonesaAplicar, aderezoAplicar, tocinoAplicar, panPreparar, panAplicar, salchichaPreparar, salchichaAplicar,  inputTiempo};
         JTextField[] inputs = {inputCebolla, inputTomate, inputLechuga, inputMayonesa, inputCondimentos,
-            inputTocino, inputPan, inputSalchicha, inputTiempo, inputCantidad};
+            inputTocino, inputPan, inputSalchicha, inputCantidad};
 
         setStage(labelsCantidades, configuraciones, inputs); //<-------- Agrega funciones principales
-        agregarVerificadores(configuraciones);
+        agregarVerificadoresT(configuraciones);
 
         //CODIGO FUNCIONES DE LOS INPUT
         nuevosInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 desbloquearInputs(inputs);
-                agregarVerificadores(inputs);
+                agregarVerificadoresC(inputs);
             }
         });
 
@@ -341,10 +368,18 @@ public class MyPanel extends JPanel {
         editar.setEnabled(true);
     }
 
-    private void agregarVerificadores(JTextField[] inputs) {
+    private void agregarVerificadoresT(JTextField[] inputs) {   // Verificador para el tiempo
         if (inputs.length > 0) {
             for (int i = 0; i < inputs.length; i++) {
-                inputs[i].setInputVerifier(new Verificador());
+                inputs[i].setInputVerifier(new VerificadorT());
+            }
+        }
+    }
+
+    private void agregarVerificadoresC(JTextField[] inputs) {  // Verificador para cantidades
+        if (inputs.length > 0) {
+            for (int i = 0; i < inputs.length; i++) {
+                inputs[i].setInputVerifier(new VerificadorC());
             }
         }
     }

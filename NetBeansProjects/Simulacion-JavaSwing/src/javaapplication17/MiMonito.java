@@ -28,8 +28,8 @@ public class MiMonito extends JLabel implements Runnable {
 
     @Override
     public void run() {
-        for (int x = 120; x <= 490; x += 3) {
-            this.setBounds(x, 10, 32, 39);
+        for (int x = 120; x <= 590; x += 3) {
+            this.setBounds(x, 40, 80, 40);
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
