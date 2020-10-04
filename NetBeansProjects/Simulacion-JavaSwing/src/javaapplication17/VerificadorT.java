@@ -17,23 +17,22 @@ public class VerificadorT extends InputVerifier {
 
         try {
             if (Double.parseDouble(text) > 0) {
-              isDouble = true;
-              arg0.setBackground(Color.green);
-            }
-            else {
-              arg0.setBackground(Color.red);
-              JOptionPane.showMessageDialog(null, text + " no es valido." );
-              return false;
+                isDouble = true;
+                arg0.setBackground(Color.green);
+            } else {
+                arg0.setBackground(Color.red);
+                JOptionPane.showMessageDialog(null, text + " no es valido.");
+                return false;
             }
         } catch (NumberFormatException a) {
             try {
                 if (Integer.parseInt(text) > 0) {
-                  arg0.setBackground(Color.green);
-                  isInt = true;
+                    arg0.setBackground(Color.green);
+                    isInt = true;
                 }
             } catch (NumberFormatException e) {
                 arg0.setBackground(Color.red);
-                JOptionPane.showMessageDialog(null, text + " no es valido." );
+                JOptionPane.showMessageDialog(null, text + " no es valido.");
                 return false;
             }
         }

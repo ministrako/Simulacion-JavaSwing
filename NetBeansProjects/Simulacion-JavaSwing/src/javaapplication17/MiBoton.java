@@ -23,8 +23,7 @@ public class MiBoton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-        if (e.getSource().toString()== "Detener") {
+        if (e.getSource().toString() == "Detener") {
 
         }
         if (e.getSource().toString() == "Comenzar") {

@@ -1,4 +1,4 @@
-// Verificador para cantidades (deben de ser enteras y mayores que 0)
+//Verificador para cantidades (deben de ser enteras y mayores que 0)
 package javaapplication17;
 
 import java.awt.Color;
@@ -17,17 +17,17 @@ public class VerificadorC extends InputVerifier {
 
         try {
             if (Integer.parseInt(text) > 0) {
-              isInt = true;
-              arg0.setBackground(Color.green);
+                isInt = true;
+                arg0.setBackground(Color.green);
             } else {
-              arg0.setBackground(Color.red);
-              JOptionPane.showMessageDialog(null,text + " no es entero o mayor que 0." );
-              return false;
+                arg0.setBackground(Color.red);
+                JOptionPane.showMessageDialog(null, text + " no es entero o mayor que 0.");
+                return false;
             }
         } catch (NumberFormatException a) {
-          arg0.setBackground(Color.red);
-          JOptionPane.showMessageDialog(null, text + " no es entero o mayor que 0." );
-          return false;
+            arg0.setBackground(Color.red);
+            JOptionPane.showMessageDialog(null, text + " no es entero o mayor que 0.");
+            return false;
         }
         return true;
     }
