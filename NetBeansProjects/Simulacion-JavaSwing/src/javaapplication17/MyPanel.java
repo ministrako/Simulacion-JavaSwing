@@ -241,7 +241,7 @@ public class MyPanel extends JPanel {
         agregarVerificadoresT(configuraciones);
 
         //CODIGO FUNCIONES DE LOS INPUT CANTIDADES
-        nuevosInput.addActionListener(new ActionListener() { 
+        nuevosInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Aqui va el codigo de la accion
                 desbloquearInputs(inputs);
@@ -288,9 +288,11 @@ public class MyPanel extends JPanel {
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                reset.setEnabled(false);
                 bloquearConfiguracionesInputs(configuraciones, inputs);
                 agregarVerificadoresC(inputs);
-                setSimulacionDefault(configuraciones, inputs);
+                setInputsDefault(inputs);
+                setConfiguracionDefault(configuraciones);
             }
         });
 
@@ -414,48 +416,6 @@ public class MyPanel extends JPanel {
         editar.setEnabled(true);
     }
 
-    private void setSimulacionDefault(JTextField[] configuraciones, JTextField[] inputs) {
-        // poner tiempos originales
-        tomatePicar.setText("18.5");
-        cebollaPicar.setText("21.25");
-        lechugaPicar.setText("17.3");
-        tomateAplicar.setText("5.25");
-        cebollaAplicar.setText("4.75");
-        lechugaAplicar.setText("5.5");
-        mayonesaAplicar.setText("7.25");
-        aderezoAplicar.setText("4");
-        tocinoAplicar.setText("23.75");
-        panPreparar.setText("55");
-        panAplicar.setText("1");
-        salchichaPreparar.setText("105");
-        salchichaAplicar.setText("4.75");
-        inputTiempo.setText("11289.5");
-
-        // poner cantidades originales
-        inputCebolla.setText("1");
-        inputTomate.setText("1");
-        inputLechuga.setText("1");
-        inputMayonesa.setText("1");
-        inputCondimentos.setText("1");
-        inputTocino.setText("1");
-        inputSalchicha.setText("1");
-        inputPan.setText("1");
-        inputCantidad.setText("1");
-
-        for (int i = 0; i < configuraciones.length; i++) {
-            configuraciones[i].setBackground(Color.white);
-            configuraciones[i].setEnabled(false);
-        }
-        for (int i = 0; i < inputs.length; i++) {
-            inputs[i].setBackground(Color.white);
-            inputs[i].setEnabled(false);
-        }
-
-        guardar.setEnabled(false);
-        cancelar.setEnabled(false);
-        editar.setEnabled(true);
-    }
-
     private void desbloquearConfiguraciones(JTextField[] configuraciones) {
         for (int i = 0; i < configuraciones.length; i++) {
             configuraciones[i].setEnabled(true);
@@ -478,7 +438,6 @@ public class MyPanel extends JPanel {
         editar.setEnabled(true);
         nuevosInput.setEnabled(true);
         cancelarC.setEnabled(false);
-        reset.setEnabled(false);
     }
 
     private void agregarVerificadoresT(JTextField[] inputs) {   // Verificador para el tiempo
