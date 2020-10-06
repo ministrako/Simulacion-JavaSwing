@@ -244,13 +244,6 @@ public class MyPanel extends JPanel {
 
         setStage(labelsCantidades, configuraciones, inputs); //<-------- Agrega funciones principales
         agregarVerificadoresT(configuraciones);
-            
-        /* Le pasamos los valores inputs para almacenarlos en clase contenedores */
-        ArrayList<Contenedores> contenedoresCantidadesIngredientes = setContenedores(inputs); // Almacenamos las cantidades de los ingredientes
-        
-        /* Le pasamos los valores configuraciones para alamcenarlos en la clase tiempos */
-        ArrayList<Tiempos> contenedoresTiemposTareas = setTiempos(configuraciones); // Almacenamos las cantidades de los tiempos
-
                 
         //CODIGO FUNCIONES DE LOS INPUT CANTIDADES
         nuevosInput.addActionListener(new ActionListener() {
@@ -264,11 +257,12 @@ public class MyPanel extends JPanel {
         //CODIGO DEL THREAD SIMULACION
         principal.innit();
         persona.innit();
-        persona.contenedoresCantidadesIngredientes = contenedoresCantidadesIngredientes; // Le pasamos los valores de los ingredientes a la imagen de animacion
-        persona.contenedoresTiemposTareas = contenedoresTiemposTareas; // LR pasamos los valores de los tiempos a la imagen de animacion
+        persona.txtIngredientes = inputs;
+        persona.txtTiempos = configuraciones;
         principal.monito = persona;
-        
+        principal.txtIngredientes = inputs;
         principal.addActionListener(principal);
+        
 
         //CODIGO FUNCIONES DE LA CONFIGURACION (TIEMPOS)
         editar.addActionListener(new ActionListener() {
@@ -470,117 +464,5 @@ public class MyPanel extends JPanel {
                 inputs[i].setInputVerifier(new VerificadorC());
             }
         }
-    }
-
-    // Metodo para almacenar los cantidades de los ingredientes
-    private ArrayList<Contenedores> setContenedores(JTextField[] cantidadesIngredientes) {
-        // Array donde estaran todas las referencias
-        ArrayList<Contenedores> contenedores = new ArrayList<Contenedores>();
-        
-        // Variables de las cantidades
-        int cebolla =  Integer.parseInt(cantidadesIngredientes[0].getText());
-        int tomate =  Integer.parseInt(cantidadesIngredientes[1].getText());
-        int lechuga =  Integer.parseInt(cantidadesIngredientes[2].getText());
-        int mayonesa =  Integer.parseInt(cantidadesIngredientes[3].getText());
-        int condimento =  Integer.parseInt(cantidadesIngredientes[4].getText());
-        int tocino =  Integer.parseInt(cantidadesIngredientes[5].getText());
-        int pan =  Integer.parseInt(cantidadesIngredientes[6].getText());
-        int salchicha =  Integer.parseInt(cantidadesIngredientes[7].getText());
-        int hotdogs = Integer.parseInt(cantidadesIngredientes[8].getText());
-        
-        // Contenedores
-        Contenedores contentCebolla = new Contenedores("Contenedor Cebolla");
-        contentCebolla.setCantidad(cebolla);
-        contenedores.add(contentCebolla);
-        Contenedores contentTomate = new Contenedores("Contenedor Tomate");
-        contentTomate.setCantidad(tomate);
-        contenedores.add(contentTomate);
-        Contenedores contentLechuga = new Contenedores("Contenedor Lechuga");
-        contentLechuga.setCantidad(lechuga);
-        contenedores.add(contentLechuga);
-        Contenedores contentMayonesa = new Contenedores("Contenedor Mayonesa");
-        contentMayonesa.setCantidad(mayonesa);
-        contenedores.add(contentMayonesa);
-        Contenedores contentCondimento = new Contenedores("Contenedor Condimentos");
-        contentCondimento.setCantidad(condimento);
-        contenedores.add(contentCondimento);
-        Contenedores contentSalchicha = new Contenedores("Contenedor Salchicha");
-        contentSalchicha.setCantidad(salchicha);
-        contenedores.add(contentSalchicha);
-        Contenedores contentTocino = new Contenedores("Contenedor Tocino");
-        contentTocino.setCantidad(tocino);
-        contenedores.add(contentTocino);
-        Contenedores contentPan = new Contenedores("Contenedor Pan");
-        contentPan.setCantidad(pan);
-        contenedores.add(contentPan);
-        Contenedores contentHotDogs = new Contenedores("Contenedor HotDogs");
-        contentHotDogs.setCantidad(hotdogs);
-        contenedores.add(contentHotDogs);
-        
-        return contenedores;
-    }
-    
-    
-    // Metodo para almacenar los tiempos de las actividades
-    private ArrayList<Tiempos> setTiempos(JTextField[] cantidadesTiempos) {
-        // Array donde estaran todas las referencias
-        ArrayList<Tiempos> tiempos = new ArrayList<Tiempos>();
-        
-        // Variables de los tiempos
-        int picarTomate = (int) Double.parseDouble(cantidadesTiempos[0].getText());
-        int picarCebolla = (int) Double.parseDouble(cantidadesTiempos[1].getText());
-        int picarLechuga = (int) Double.parseDouble(cantidadesTiempos[2].getText());
-        int aplicarTomate = (int) Double.parseDouble(cantidadesTiempos[3].getText());
-        int aplicarCebolla = (int) Double.parseDouble(cantidadesTiempos[4].getText());
-        int aplicarLechuga = (int) Double.parseDouble(cantidadesTiempos[5].getText());
-        int aplicarMayonesa = (int) Double.parseDouble(cantidadesTiempos[6].getText());
-        int aplicarCondimentos = (int) Double.parseDouble(cantidadesTiempos[7].getText());
-        int aplicarTocino = (int) Double.parseDouble(cantidadesTiempos[8].getText());
-        int prepararPan = (int) Double.parseDouble(cantidadesTiempos[9].getText());
-        int aplicarPan = (int) Double.parseDouble(cantidadesTiempos[10].getText());
-        int prepararSalchicha = (int) Double.parseDouble(cantidadesTiempos[11].getText());
-        int aplicarSalchicha = (int) Double.parseDouble(cantidadesTiempos[12].getText());
-        
-        Tiempos tPicarTomate = new Tiempos("Picar Tomate");
-        tPicarTomate.setTiempo(picarTomate);
-        tiempos.add(tPicarTomate);
-        Tiempos tPicarCebolla = new Tiempos("Picar Cebolla");
-        tPicarCebolla.setTiempo(picarCebolla);
-        tiempos.add(tPicarCebolla);
-        Tiempos tPicarLechuga = new Tiempos("Picar Lechuga");
-        tPicarLechuga.setTiempo(picarLechuga);
-        tiempos.add(tPicarLechuga);
-        Tiempos tAplicarTomate = new Tiempos("Aplicar Tomate");
-        tAplicarTomate.setTiempo(aplicarTomate);
-        tiempos.add(tAplicarTomate);
-        Tiempos tAplicarCebolla = new Tiempos("Aplicar Cebolla");
-        tAplicarCebolla.setTiempo(aplicarCebolla);
-        tiempos.add(tAplicarCebolla);
-        Tiempos tAplicarLechuga = new Tiempos("Aplicar Lechuga");
-        tAplicarLechuga.setTiempo(aplicarLechuga);
-        tiempos.add(tAplicarLechuga);
-        Tiempos tAplicarMayonesa = new Tiempos("Aplicar Mayonesa");
-        tAplicarMayonesa.setTiempo(aplicarMayonesa);
-        tiempos.add(tAplicarMayonesa);
-        Tiempos tAplicarCondimentos = new Tiempos("Aplicar Condimentos");
-        tAplicarCondimentos.setTiempo(aplicarCondimentos);
-        tiempos.add(tAplicarCondimentos);
-        Tiempos tAplicarTocino = new Tiempos("Aplicar Tocino");
-        tAplicarTocino.setTiempo(aplicarTocino);
-        tiempos.add(tAplicarTocino);
-        Tiempos tPrepararPan = new Tiempos("Preparar Pan");
-        tPrepararPan.setTiempo(prepararPan);
-        tiempos.add(tPrepararPan);
-        Tiempos tAplicarPan = new Tiempos("Aplicar Pan");
-        tAplicarPan.setTiempo(aplicarPan);
-        tiempos.add(tAplicarPan);
-        Tiempos tPrepararSalchicha = new Tiempos("Preparar Salchicha");
-        tPrepararSalchicha.setTiempo(prepararSalchicha);
-        tiempos.add(tPrepararSalchicha);
-        Tiempos tAplicarSalchicha = new Tiempos("Poner Salchicha");
-        tAplicarSalchicha.setTiempo(aplicarSalchicha);
-        tiempos.add(tAplicarSalchicha);
-        
-        return tiempos;
     }
 }
